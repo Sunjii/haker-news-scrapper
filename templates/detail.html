@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+  {% autoescape false %}
+  <header>
+    <h1>{{aticle.title}}</h1>
+    <div>
+      {{aticle.points}} | 
+      By {{aticle.author}} | 
+      <a href="{{aticle.url}}">{{aticle.url}}</a>
+    </div>
+    <br>
+    {{aticle.created_at}}
+    <p>
+      {{aticle.text}}
+    </p>
+  </header>
+  <main>
+    {% for c in aticle['childern'] %}
+    <div>
+      <strong>{{c.author}}</strong>
+      <br>
+      {{c.text}}
+    </div>
+    <hr>
+    {% endfor %}
+  </main>
+  {% endautoescape %}
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  <title>Haker News</title>
+</head>
+
+<body>
+  <h1>Haker News</h1>
+  <div>
+      Order by:
+      <a href="/?order_by=popular">Popular</a>
+       | 
+      <strong>New</strong>
+  </div>
+
+  <main>
+    {% for news in news_list %}
+    <div>
+      <!-- {{news.url}}-->
+      <a href="{{news_list[news].objectID}}">
+          <h3>{{news_list[news].title}}</h3>
+      </a>
+      <br>
+      <a href="{{news_list[news].url}}">{{news_list[news].url}}</a> 
+    </div>
+    <div>{{news_list[news].points}} | By: {{news_list[news].author}} |  {{news_list[news].num_comments}} comments</div>
+    <hr>
+    {% endfor %}
+  </main>
+
+
+  
+</body>
+
+</html>
